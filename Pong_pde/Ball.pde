@@ -1,4 +1,5 @@
 class Ball{
+  boolean past;
   int x;
   int y;
   int angle;
@@ -7,34 +8,45 @@ class Ball{
   Ball(){
     y=400;
     x=400;
+    past=false;
   }
   void move(){
-    if(x-70<3 && angle>90 && angle<270){
+    if(!past && x-70<3 && angle>90 && angle<270){
       x=70;
-      bounce();
+      if((left.gety()-y)>-10 && (left.gety()-y)<20){
+        bounce();
+      }
+      else{
+        past=true;
+      }
+      //bounce();
     }
-    if(740-x<3 && (angle>270 || angle<90)){
+    if(x<10){
+          rightscore++;
+          x=400;
+          y=400;
+          speed=0;
+          //NEW BALL
+        }
+    if(!past && 740-x<3 && (angle>270 || angle<90)){
       x=740;
-      bounce();
+      if(right.gety()-y>-10 && right.gety()-y<20){
+        bounce();
+      }
+      else{
+        past=true;
+      }
+      //bounce();
     }
+    if(x>790){
+          leftscore++;
+          x=400;
+          y=400;
+          speed=0;
+          //NEW BALL
+        }
     x+=cos((float)(Math.toRadians(angle)))*speed;
     y-=sin((float)(Math.toRadians(angle)))*speed;
-
-    
-    if(x==70){
-      //bounce();
-      /*if((left.gety()-y)>-10 && (left.gety()-y)<20){
-        bounce();
-      }*/
-    }
-    if(x==740){
-      //bounce();
-      /*if(right.gety()-y>-10 && right.gety()-y<20){
-        bounce();
-      }*/
-    }
-      
-
   }
   
   void bounce(){

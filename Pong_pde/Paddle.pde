@@ -30,6 +30,14 @@ class Paddle{
     y+=15;
   }
   
+  int getx(){
+    return x;
+  }
+  
+  int gety(){
+    return y;
+  }
+  
   void display(){
     rect(x,y,10,30);
   }

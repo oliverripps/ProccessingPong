@@ -3,6 +3,7 @@
   Ball gameball;
   int leftscore;
   int rightscore;
+  boolean started;
 
 void setup(){
   size(800, 800);
@@ -12,13 +13,20 @@ void setup(){
   //display();
   leftscore=0;
   rightscore=0;
+  started=false;
 }
 void draw(){
-  
+  if(started==false){
+    gameball.setspeed(3);
+    gameball.setangle(180);
+    started=true;
+  }
+  gameball.move();
   display();
 }
 
 void keyPressed(){
+
     if(key=='w'){
       left.goup();
     }

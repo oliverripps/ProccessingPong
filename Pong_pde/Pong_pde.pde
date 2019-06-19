@@ -9,13 +9,31 @@ void setup(){
   right = new Paddle('r');
   left = new Paddle('l');
   gameball = new Ball();
-  display();
+  //display();
   leftscore=0;
   rightscore=0;
 }
-//void draw(){
+void draw(){
   
-//}
+  display();
+}
+
+void keyPressed(){
+    if(key=='w'){
+      left.goup();
+    }
+    if(key=='s'){
+      left.godown();
+    }
+    if (key == CODED) {
+    if (keyCode == UP) {
+      right.goup();
+    }
+    if(keyCode == DOWN){
+      right.godown();
+    }
+    }
+  }
 void display(){
   background(0);
   right.display();

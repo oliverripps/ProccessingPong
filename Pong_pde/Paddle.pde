@@ -22,6 +22,13 @@ class Paddle{
       x=750;
     }
   }
+  void goup(){
+    y-=15;
+  }
+  
+  void godown(){
+    y+=15;
+  }
   
   void display(){
     rect(x,y,10,30);
